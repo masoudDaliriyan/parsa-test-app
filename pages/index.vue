@@ -81,7 +81,26 @@
       </div>
       <div class="flex">
         <div>
-          <img src="/video.svg">
+          <!-- Replace video image with Video.js player -->
+          <div style="max-width: 640px; margin-bottom: 16px;">
+            <video
+              ref="videoPlayer"
+              class="video-js vjs-default-skin"
+              controls
+              preload="auto"
+              width="640"
+              height="360"
+              poster="https://filmtarsnak.com/wp-content/uploads/2024/12/Sijjin-7-68165.jpg"
+            >
+              <track
+                kind="subtitles"
+                src="https://s600.upera.tv/s3/files/subtitles/ff5bf080-b157-11ef-918d-7b1c7b6ce523/subtitle_6750894197675.vtt"
+                srclang="fa"
+                label="فارسی"
+                default
+              />
+            </video>
+          </div>
           <div class="flex justify-between">
             <div>
               <div class="button">
@@ -138,6 +157,36 @@
     </div>
   </div>
 </template>
+
+<script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+import videojs from 'video.js'
+import 'video.js/dist/video-js.css'
+
+const videoPlayer = ref(null)
+let player = null
+
+onMounted(() => {
+  player = videojs(videoPlayer.value, {
+    controls: true,
+    autoplay: false,
+    preload: 'auto',
+    fluid: true,
+    sources: [
+      {
+        src: 'https://traffic.upera.tv/3025234-0-hls.m3u8?ref=uVhD',
+        type: 'application/x-mpegURL',
+      },
+    ],
+  })
+})
+
+onBeforeUnmount(() => {
+  if (player) {
+    player.dispose()
+  }
+})
+</script>
 
 <style scoped>
 .header {

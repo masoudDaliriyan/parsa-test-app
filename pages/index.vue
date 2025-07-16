@@ -121,11 +121,11 @@
             </div>
 
           </div>
-                  </div>
+        </div>
         <div>
           <div class="flex flex-wrap gap-4">
             <div v-for="ep in seriesData?.episodes || []" :key="ep.number" class="flex">
-              <img :src="ep.poster || '/sample-image.svg'" alt="">
+              <img class="episod-poster" :src="ep.poster || '/sample-image.svg'" alt="">
               <div>
                 <div>
                   <div>
@@ -155,6 +155,32 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="alert flex justify-between p-8">
+      <div>
+        <img src="/icons/danger.svg" alt="">
+      <div>
+        پیش از شروع تماشای آنلاین وی پی ان خود را خاموش کنید
+      </div>
+      </div>
+            <div class="button">
+          خرید اشتراک
+      </div>
+    </div>
+    <div class="comments">
+      <div>
+  آیا تماشای  سریال  الکامینو را به دیگران
+  پیشنهاد می کنید؟
+      </div>
+      <div>
+        نظر خود را در این رابطه بنویسید
+        <textarea class="comment-text-area" placeholder="متن نظر" >
+
+        </textarea>
+        <button>
+          ارسال نظر
+        </button>
       </div>
     </div>
   </div>
@@ -262,5 +288,24 @@ onBeforeUnmount(() => {
   background-color: #242629;
   border-radius: 4px;
   margin-left: 8px;
+}
+.episod-poster{
+  max-width: 100px;
+  border-radius: 6px;
+}
+.alert{
+  background: #2E2217;
+}
+.comments{
+  background-color: #242629;
+
+}
+
+.comment-text-area{
+  background-color: #1B1C1F;
+  border:none;
+  height: 84px;
+  resize: none;
+  border-radius: 5px;
 }
 </style> 

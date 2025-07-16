@@ -1,7 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@import url('/fonts/Vazirmatn-font-face.css');
+@import "tailwindcss";
 
 body {
     background: #1B1C1F;

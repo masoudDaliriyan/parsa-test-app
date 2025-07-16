@@ -13,8 +13,6 @@
             </nav>
           </div>
         </div>
-
-
         <div class="flex header__icons">
           <div class="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600 icon-wrapper">
             <img src="/icons/notification.svg" alt="search" class="w-4 h-4">
@@ -35,40 +33,113 @@
   <div class="container">
     <div class="second-toolbar">
       <div class="button">
-          <img src="/icons/back-gray.svg" alt="">
-          بازگشت
+        <img src="/icons/back-gray.svg" alt="">
+        بازگشت
       </div>
     </div>
-    <div class="flex">
-<div>
+    <div>
+      <div class="flex justify-between">
+        <div class="flex text-right items-center">
+          <div class="flex">
+            <img src="/icons/1080.svg" alt="1080">
+            <div>
+              <div>
+                سریال EL CAMINO
+              </div>
+              <div>
+                فیلم ال کامینو
+              </div>
+            </div>
+          </div>
+          <div>
+          </div>
+        </div>
+        <div class="flex">
+          <div>
+            <img src="/icons/play-circle.svg">
+            فصل ۲ قسمت ۵
+          </div>
+          <div>
+            <img src="/icons/star.svg">
+            <img src="/icons/star-gray.svg">
+          </div>
+          <div>
+            <div>
+              ۴.۵/۱۰
+              <img src="/icons/imdb.svg" alt="imdb">
+            </div>
+          </div>
+          <div class="flex">
+            <div class="icon-wrapper button-icon">
+              <img src="/icons/bookmarking.svg" alt="booking">
+            </div>
+            <div class="icon-wrapper button-icon">
+              <img src="/icons/share.svg" alt="booking">
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="flex">
         <div>
-          <img src="/icons/1080.svg" alt="1080">
-          سریال EL CAMINO
-        </div>
-        <div>
-          فیلم ال کامینو
-        </div>
-        <div>
-          <img src="/icons/play-circle.svg">
-          فصل ۲ قسمت ۵
-        </div>
-        <div>
-          <img src="/icons/imdb.svg" alt="imdb">
-          <img src="/icons/bookmarking.svg" alt="booking">
-        </div>
-      </div>
-      <div> 
-        <img src="/video.svg">
-      </div>
-    </div>
+          <img src="/video.svg">
+          <div class="flex justify-between">
+            <div>
+              <div class="button">
+                پلیر تلوزیون های سامسونگ
+              </div>
+              <div class="button">
+                پلیر تلوزیون های قدیمی
+              </div>
+              <div class="button">
+                پلیر تلوزیون های قدیمی
+              </div>
+            </div>
+            <div>
+              حین تماشا با مشکلی رو به رو شدید؟
+              <div class="button">
+                  اعلام مشکل
+              </div>
+            </div>
 
-    </div>
+          </div>
+                  </div>
+        <div>
+          <div class="flex"> 
+            <img src="/sample-image.svg" alt="">
+            <div>
+              <div>
+                <div>
+                فیلم EL CAMINO
+                </div>
+                <div>
+                  فصل ۱
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  قسمت ۱
+                </div>
+              </div>
+                            <div class="button button-orange">
+                <img src="/icons/fire.svg">
+              </div>
+              <div class="button button-blue">
+                <img src="/icons/microphone.svg" alt="">
+                زیرنویس
+              </div>
+              <div class="button button-green">
+                <img src="/icons/fire.svg" alt="">
+                دوبله
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+  </div>
 </template>
 
 <style scoped>
-
 .header {
   background-color: #242629;
   max-width: 1800px;
@@ -98,14 +169,34 @@
 .header-links-wrapper a {
   margin-right: 10px;
 }
+
 .button{
   display: inline-block;
   background-color: #242629;
   padding: 10px 20px;
   border-radius: 4px  ;
 }
+.button-green {
+  background-color: #43B100;
+  color: #fff;
+}
+.button-blue {
+  background-color: #245DEF;
+  color: #fff;
+}
+.button-orange {
+  background-color: #FB7800;
+  color: #fff;
+}
+
 .second-toolbar{
   margin: 15px 0 ;
   text-align: left;
+}
+
+.button-icon {
+  background-color: #242629;
+  border-radius: 4px;
+  margin-left: 8px;
 }
 </style> 

@@ -82,14 +82,14 @@
       <div class="flex">
         <div>
           <!-- Replace video image with Video.js player -->
-          <div style="max-width: 640px; margin-bottom: 16px;">
+          <div style="width: 790px; margin-bottom: 16px;">
             <video
               ref="videoPlayer"
               class="video-js vjs-default-skin"
               controls
               preload="auto"
-              width="640"
-              height="360"
+              width="790"
+              height="445"
               poster="https://filmtarsnak.com/wp-content/uploads/2024/12/Sijjin-7-68165.jpg"
             >
               <track
@@ -123,32 +123,34 @@
           </div>
                   </div>
         <div>
-          <div class="flex"> 
-            <img src="/sample-image.svg" alt="">
-            <div>
+          <div class="flex flex-wrap gap-4">
+            <div v-for="ep in seriesData?.episodes || []" :key="ep.number" class="flex">
+              <img :src="ep.poster || '/sample-image.svg'" alt="">
               <div>
                 <div>
-                فیلم EL CAMINO
+                  <div>
+                    {{ seriesData?.title_fa || 'فیلم EL CAMINO' }}
+                  </div>
+                  <div>
+                    فصل ۱
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    قسمت {{ ep.number || '۱' }}
+                  </div>
                 </div>
-                <div>
-                  فصل ۱
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  قسمت ۱
+                <div class="button button-orange">
+                  <img src="/icons/fire.svg">
                 </div>
-              </div>
-                            <div class="button button-orange">
-                <img src="/icons/fire.svg">
-              </div>
-              <div class="button button-blue">
-                <img src="/icons/microphone.svg" alt="">
-                زیرنویس
-              </div>
-              <div class="button button-green">
-                <img src="/icons/fire.svg" alt="">
-                دوبله
+                <div class="button button-blue">
+                  <img src="/icons/microphone.svg" alt="">
+                  زیرنویس
+                </div>
+                <div class="button button-green">
+                  <img src="/icons/fire.svg" alt="">
+                  دوبله
+                </div>
               </div>
             </div>
           </div>
@@ -163,10 +165,13 @@ import { ref, onMounted, onBeforeUnmount } from 'vue'
 import videojs from 'video.js'
 import 'video.js/dist/video-js.css'
 
+// Define seriesData so it is available in the template
+const seriesData = ref(null)
+
 const videoPlayer = ref(null)
 let player = null
 
-onMounted(() => {
+onMounted(async () => {
   player = videojs(videoPlayer.value, {
     controls: true,
     autoplay: false,
@@ -179,6 +184,16 @@ onMounted(() => {
       },
     ],
   })
+
+  // Fetch the series data
+  try {
+    const res = await fetch('https://ylnk.site/test/?action=info&id=2501')
+    if (res.ok) {
+      seriesData.value = await res.json()
+    }
+  } catch (e) {
+    console.error('Failed to fetch series data', e)
+  }
 })
 
 onBeforeUnmount(() => {

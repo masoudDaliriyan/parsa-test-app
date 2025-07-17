@@ -1,3 +1,11 @@
+# 🚨 Node.js 22 or Higher Required
+
+Please ensure you are using **Node.js version 22 or higher** to run this project. You can check your version with:
+
+```bash
+node --version
+```
+
 # Nuxt Minimal Starter
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.

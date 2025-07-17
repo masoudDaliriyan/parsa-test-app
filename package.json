@@ -3,8 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dev": " nuxt dev",
     "build": "nuxt build",
-    "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
@@ -21,5 +21,8 @@
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.11"
+  },
+  "engines": {
+    "node": ">=22"
   }
 }

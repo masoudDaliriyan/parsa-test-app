@@ -1,9 +1,9 @@
 <template>
   <header class="header">
     <div class="container">
-      <div class="w-full shadow flex items-center justify-between px-6 py-4">
+      <div class="w-full shadow flex items-center justify-between  py-4">
         <div class="flex items-center space-x-4">
-          <img src="/film-tarsnak-logo.svg" alt="logo" class="w-10 h-10 pl-8">
+          <img src="/film-tarsnak-logo.svg" alt="logo">
           <div class="header-links-wrapper">
             <nav class="flex">
               <a href="#section1" class="px-3 py-1 rounded hover:bg-gray-100 text-gray-700">دسته بندی ها</a>
@@ -32,18 +32,22 @@
   </header>
   <div class="container">
     <div class="second-toolbar">
-      <div class="button">
-        <img src="/icons/back-gray.svg" alt="">
-        بازگشت
+      <div class="button flex gap-2 items-center">
+        <div class="flex gap-2">
+          <img src="/icons/back-gray.svg" alt="">
+          <span>
+            بازگشت
+          </span>
+        </div>
       </div>
     </div>
     <div>
       <div class="flex justify-between">
         <div class="flex text-right items-center">
           <div class="flex">
-            <img src="/icons/1080.svg" alt="1080">
+            <img src="/icons/1080.svg" alt="1080" class="ml-4">
             <div>
-              <div>
+              <div class="text-2xl">
                 سریال EL CAMINO
               </div>
               <div>
@@ -54,22 +58,30 @@
           <div>
           </div>
         </div>
-        <div class="flex">
-          <div>
-            <img src="/icons/play-circle.svg">
-            فصل ۲ قسمت ۵
+        <div class="flex gap-4">
+          <div class="flex gap-2 items-center">
+            <span>
+              <img src="/icons/play-circle.svg">
+            </span>
+            <span>
+              فصل ۲ قسمت ۵
+            </span>
           </div>
-          <div>
-            <img src="/icons/star.svg">
-            <img src="/icons/star-gray.svg">
+          <div class="flex items-center">
+            <span>
+              <img src="/icons/star.svg">
+            </span>
+            <span>
+              <img src="/icons/star-gray.svg">
+            </span>
           </div>
-          <div>
-            <div>
-              ۴.۵/۱۰
+            <div class="flex gap-2 items-center">
+              <span>
+                ۴.۵/۱۰
+              </span>
               <img src="/icons/imdb.svg" alt="imdb">
             </div>
-          </div>
-          <div class="flex">
+          <div class="flex gap-2">
             <div class="icon-wrapper button-icon">
               <img src="/icons/bookmarking.svg" alt="booking">
             </div>
@@ -79,7 +91,7 @@
           </div>
         </div>
       </div>
-      <div class="flex">
+      <div class="flex mt-4">
         <div>
           <!-- Replace video image with Video.js player -->
           <div style="width: 790px; margin-bottom: 16px;">
@@ -101,9 +113,9 @@
               />
             </video>
           </div>
-          <div class="flex justify-between">
-            <div>
-              <div class="button">
+          <div class="flex justify-between text-xs">
+            <div class="flex gap-2">
+              <div class="button !bg-[#AB070F99]">
                 پلیر تلوزیون های سامسونگ
               </div>
               <div class="button">
@@ -116,15 +128,45 @@
             <div>
               حین تماشا با مشکلی رو به رو شدید؟
               <div class="button">
-                  اعلام مشکل
+                اعلام مشکل
               </div>
             </div>
-
           </div>
+
+
+<div class="alert flex justify-between p-4 rounded-xl mt-4">
+      <div class="flex">
+        <img src="/icons/danger.svg" class="ml-2" alt="">
+        <span>
+          پیش از شروع تماشای آنلاین وی پی ان خود را خاموش کنید
+        </span>
+        <div>
+        </div>
+      </div>
+      <div class="button">
+        خرید اشتراک
+      </div>
+    </div>
+    <div class="comments mt-4 p-4 rounded-xl">
+      <div class="text-xl">
+        آیا تماشای  سریال  الکامینو را به دیگران
+        پیشنهاد می کنید؟
+      </div>
+      <textarea class="comment-text-area mt-4 h-[300px] w-full p-4" placeholder="متن نظر"></textarea>
+      <div>
+        نظر خود را در این رابطه بنویسید
+        <button class="bg-[#AB070F]">
+          ارسال نظر
+        </button>
+      </div>
+    </div>
+
+
+
         </div>
         <div>
           <div class="flex flex-wrap gap-4">
-            <div v-for="ep in seriesData?.episodes || []" :key="ep.number" class="flex">
+            <div v-for="ep in seriesData?.episodes || []" :key="ep.number" class="flex gap-2 mr-4">
               <img class="episod-poster" :src="ep.poster || '/sample-image.svg'" alt="">
               <div>
                 <div>
@@ -157,32 +199,7 @@
         </div>
       </div>
     </div>
-    <div class="alert flex justify-between p-8">
-      <div>
-        <img src="/icons/danger.svg" alt="">
-      <div>
-        پیش از شروع تماشای آنلاین وی پی ان خود را خاموش کنید
-      </div>
-      </div>
-            <div class="button">
-          خرید اشتراک
-      </div>
-    </div>
-    <div class="comments">
-      <div>
-  آیا تماشای  سریال  الکامینو را به دیگران
-  پیشنهاد می کنید؟
-      </div>
-      <div>
-        نظر خود را در این رابطه بنویسید
-        <textarea class="comment-text-area" placeholder="متن نظر" >
-
-        </textarea>
-        <button>
-          ارسال نظر
-        </button>
-      </div>
-    </div>
+    
   </div>
 </template>
 
@@ -287,7 +304,6 @@ onBeforeUnmount(() => {
 .button-icon {
   background-color: #242629;
   border-radius: 4px;
-  margin-left: 8px;
 }
 .episod-poster{
   max-width: 100px;
@@ -304,8 +320,7 @@ onBeforeUnmount(() => {
 .comment-text-area{
   background-color: #1B1C1F;
   border:none;
-  height: 84px;
   resize: none;
   border-radius: 5px;
 }
-</style> 
+</style>
